@@ -1,6 +1,7 @@
 from flask import Flask,request, url_for, redirect, render_template
 import pickle
 import numpy as np
+import os
 from jinja2 import debug
 
 app = Flask(__name__)
@@ -29,4 +30,5 @@ def predecir():
         return render_template('indice.html', pred= 'El bosque se encuentra a salvo.\nLas Probabilidades de que ocurra un incendio es de {}'.format(salida), bhai="Todo se encuentra sano y salvo")
 
 if __name__ == '__main__':
-    app.run( debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
