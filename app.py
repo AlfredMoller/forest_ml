@@ -9,7 +9,7 @@ model = pickle.load(open('model.pkl','rb'))
 
 @app.route('/')
 def saludo():
-    return render_template('indice.html')
+    return render_template('tempplates/indice.html')
 
 @app.route('/predict', methods=['POST','GET'])
 def predecir():
